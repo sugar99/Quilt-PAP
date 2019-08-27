@@ -1,0 +1,7 @@
+{
+  "usingComponents": {},
+  "backgroundColor": "#DCDCDC",
+  "backgroundTextStyle": "light",
+  "navigationBarTitleText": "搜索",
+  "enablePullDownRefresh": true
+}

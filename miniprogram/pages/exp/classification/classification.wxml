@@ -1,0 +1,11 @@
+<!--miniprogram/pages/exp/classification/classification.wxml-->
+<!--自定义导航栏-->
+<navBar text="{{titleText}}" back="true"></navBar>
+
+<scroll-view scroll-y="true">
+  <block wx:for="{{explist}}" wx:key="*this">
+    <expsag type="single" item="{{item}}"></expsag>
+  </block>
+</scroll-view>
+
+

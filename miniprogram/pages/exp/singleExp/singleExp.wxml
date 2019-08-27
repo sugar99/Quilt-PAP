@@ -1,0 +1,50 @@
+<!--miniprogram/pages/exp/singleExp/singleExp.wxml-->
+<navBar text="单个实验" back="true"></navBar>
+<image class='site-img' data-id="{{item.deviceId}}" src="/images/ad1.jpg" catchtap='navmap'></image>
+<text>\n</text><text>\n</text>
+<view class="namescore">
+  <view class="name">{{item.name}}</view>
+  <view class="score">{{item.score}}分</view>
+</view>
+    <view class="detailreward">
+   <view class="logo-reward" src="" mode="aspectFill"></view>
+   <view class="reward" space="ensp"><text>实验报酬为</text>￥{{item.reward}}</view>
+   <text class='grey'>实验完成后由主试支付</text>
+    </view>
+    <view class="detailtime">
+    <view class="logo-time" src="" mode="aspectFill"></view>
+    <view class="time" space="ensp"><text>实验时长约</text>{{item.expTime}}<text>Min</text></view>
+    <text class='grey'>时长轻微上下浮动</text>
+    </view>
+    <view class="detaildistance">
+    <view class="logo-distance" src="" mode="aspectFill"></view>
+    <view>{{item.place}}</view>  
+    <view class="distance" space="ensp"><text class='grey'>距离你约</text>{{item.distance}}<text class='grey'>KM</text></view>
+      </view> 
+      <text>\n</text><text>\n</text>
+      <view class="intro">       
+      <view class="introtext">实验介绍</view>
+      <text class="abstract">{{item.abstract}}</text>
+      </view>
+      <text>\n</text><text>\n</text><text>\n</text><text>\n</text>
+      <view class="rtexttips">
+      <view class="requirementtext">实验要求</view>
+     <text class='grey2'>请确保您完全符合条件</text>
+      </view>
+      <view class="tag1">
+      <block wx:for="{{item.requirement}}" wx:key="*this"><view class="tag" style="background-color:{{color[3]}}">{{item}}</view></block>
+      </view>
+      <text>\n</text><text>\n</text>
+<view class="ctexttips">
+        <view class="commenttext">实验评价</view>
+    <view class="Cpopulation" space="ensp"><text class='grey2'>累计</text>{{item.commentpopulation}}<text class='grey2'>做出评价</text></view>
+    </view>
+        <view class="tag2">
+        <block wx:for="{{item.comments}}" wx:key="*this"><view class="tag" style="background-color:{{color[1]}}">{{item}}</view></block>
+        </view>
+<text>\n</text><text>\n</text><text>\n</text><text>\n</text>
+     <button class='btn1' open-type='openSetting'>
+    <view>预约</view></button>   
+
+ 
+

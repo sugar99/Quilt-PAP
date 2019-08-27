@@ -1,0 +1,79 @@
+<!--miniprogram/pages/signIn/signIn.wxml-->
+<navBar text="注册" back="true"></navBar>
+
+<view class="container">
+  <view class="option" style="height:200rpx;" bindtap="upLoadPro">
+    <view class="optionText">头像</view>
+    <image src="{{userAvatarUrl}}" id="userAvatar"></image>
+    <image class="go" src="{{'/images/go0.png'}}"></image>
+  </view>
+  
+  <view class="option">
+    <view class="optionText">姓名</view>
+      <input name="userName" bindinput ="userNameInput" placeholder="姓名"></input>
+    <image class="go" src="{{'/images/go0.png'}}"></image>
+  </view>
+
+  <view class="option">
+    <view class="optionText">生日</view>
+    <view id="birth">
+      <picker mode='date' value="{{userBirth}}" fields="month" start='1970-01' end="{{today}}" 
+        bindchange="birthChange" style="color:{{changed?'black':'#818283'}}">{{userBirth}}</picker>
+    </view>
+    <image class="go" src="{{'/images/go0.png'}}"></image>
+  </view>
+
+  <view class="option">
+    <view class="optionText">性别</view>
+    <view class="selectbox">
+      <block wx:for="{{genderList}}" wx:key="*this">
+        <text bindtap="genderChange" class="{{gender==item?'select':'radioStyle'}}" data-item="{{item}}">{{item}}</text>
+      </block>
+    </view>
+    <image class="go" src="{{'/images/go0.png'}}"></image>
+  </view>
+
+  <view class="option">
+    <view class="optionText">惯用手</view>
+    <view class="selectbox">
+      <block wx:for="{{fitHandList}}" wx:key="*this">
+        <text bindtap="fitHandChange" class="{{fitHand==item?'select':'radioStyle'}}" data-item="{{item}}">{{item}}</text>
+      </block>      
+    </view>
+    <image class="go" src="{{'/images/go0.png'}}"></image>
+  </view>
+
+  <view class="option" data-modal="{{sightList}}" bindtap="showModal">
+    <view class="optionText">视力</view>
+    <view class="selectbox"><text style="height:40rpx;margin:auto 0;">{{sight}}</text></view>
+    <image class="go" src="{{'/images/go0.png'}}"></image>
+  </view>
+
+  <view class="option" data-modal="{{visualList}}" bindtap="showModal">
+    <view class="optionText">视觉质量</view>
+    <view class="selectbox"><text style="height:40rpx;margin:auto 0;">{{visual}}</text></view>
+    <image class="go" src="{{'/images/go0.png'}}"></image>
+  </view>
+  
+  <view class="option" style="border-bottom:0;display:flex;flex-direction:column-reverse">
+      <text style="color:red;font-size:25rpx;">*以上信息仅用于匹配和预约科学实验，请如实填写</text>
+ </view>
+   <button 
+    class="submit"  
+    open-type="getUserInfo"
+    open-type="getUserInfo"
+    bind:getuserinfo="login">确认提交</button>
+</view>
+
+<modal id="modal" fadeStyle="slideUp" height="400rpx" width="500rpx" top="30%" left="125rpx">
+  <view slot="selfTitle" style="margin:auto auto;">选择</view>
+  <view slot="selfContent">
+    <view class="modalbox">   
+      <block wx:for="{{modalData.list}}" wx:key="*this">
+        <view class="modalItem" data-type="{{modalData.title}}" data-value="{{item}}" bindtap="itemSelect">
+          <view>{{item}}</view>
+        </view>
+      </block>
+    </view> 
+  </view>
+</modal>

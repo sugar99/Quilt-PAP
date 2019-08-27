@@ -1,0 +1,32 @@
+<!--miniprogram/pages/meg/index.wxml-->
+<navBar text="正在进行"></navBar>
+<image  class='fixed' id='publish' src='/images/plus1.png' bindtap="publishExp" wx:if="{{privilege}}"></image>
+<image  class='fixed' id='check' src='/images/check1.png' bindtap="check" wx:if="{{privilege}}"></image>
+  <scroll-view wx:for="{{explist}}" wx:key="*this" scroll-y="true">
+  <view class="exp">
+  <view class="a">
+    <view class="name">{{item.name}}<image src=""></image></view>
+    <view class="button"><button class='btn2' ><view>套餐</view></button></view> 
+    </view>
+  <view class="detail1">
+    <view class="score">{{item.score}}分</view>
+    <view class="reward" space="ensp">￥{{item.reward}} <text>| 约</text>{{item.expTime}}<text>min</text></view>
+    <view class="distance" space="ensp"><text>距离</text>{{item.distance}}<text>KM</text> <text>| 步行</text>{{item.footTime}}<text>min</text></view>
+  </view>
+  <view class="econtent">
+    <image src="{{item.imgPath}}"></image>
+    <view class="detail2">
+      <view class="location"><text class="grey">地点:</text><text class="black">{{item.place}}</text></view>
+      <view class="time">
+       <view class="time1"><text class="grey">时间:</text><text class="black">{{item.time1}}</text></view>
+       <view class="tags"><block wx:for="{{item.time2}}" wx:key="*this"><view class="tag" style="background-color:{{color[1]}}">{{item}}</view></block></view></view>
+      </view>
+            <view class="button"><button class='btn1' ><view>查看</view></button></view>
+    </view>
+</view>
+  </scroll-view>
+
+
+
+
+

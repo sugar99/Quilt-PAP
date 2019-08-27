@@ -1,0 +1,157 @@
+/* miniprogram/pages/meg/index.wxss */
+/* components/expSaG.wxss */
+.fixed{
+  width: 80rpx;
+  height: 80rpx;
+  position: fixed;
+}
+#publish{
+  right: 25rpx;
+  bottom: 25rpx;
+}
+#check{
+  right: 25rpx;
+  bottom: 120rpx;
+}
+.exp{
+  height: 175rpx;
+  width: 700rpx;
+  font-size: 20rpx;
+  display: flex;
+  flex-direction: column;
+  padding: 5rpx 5rpx;
+  margin:30rpx;
+
+}
+.name{
+  font-size: 30rpx;
+  font-weight: bolder;
+  margin: 0 10rpx;
+  width: 570rpx;
+  display: inline-flex;
+}
+.name image{
+  width: 30rpx;
+  height: 40rpx;
+  margin-left: 10rpx;
+  background-color: rgb(226, 230, 46);
+}
+.name view{
+  font-size: 20rpx;
+  font-weight: bolder;
+  border-radius: 5rpx;
+  width: 80rpx;
+  margin: 5rpx;
+  padding: 5rpx;
+  background-color: #1E90FF;
+}
+.detail1{
+  display: inline-flex;
+  flex-flow: row wrap;
+  margin: 0 10rpx;
+  width: 570rpx;
+  justify-content: space-between;
+}
+
+.a{
+  display: inline-flex;
+  flex-flow:row;
+  width: 700rpx;
+  justify-content: space-between;
+}
+
+/*class=econtent 单个(exp)实验样式*/
+.econtent{
+  display: flex;
+  font-size: 25rpx;
+}
+.econtent image{
+  width: 100rpx;
+  height: 100rpx;
+  border-radius: 10rpx;
+  margin: 10rpx 0;
+  background-color: rgb(226, 230, 46);
+}
+.econtent .detail2{
+  width: 400rpx;
+  padding: 0 5rpx;
+  display: inline-flex;
+  flex-flow:column;
+  margin:10rpx;
+  height:100rpx;
+  justify-content: space-between;
+}
+.reward,.distance{
+  color: #04a77e;
+  font-size: 25rpx;
+}
+.score{
+  color: #e2ba05;
+  font-size: 25rpx;
+}
+.grey{
+  color:#a7a4a4;
+  font-size: 25rpx;
+}
+.black{
+  color:black;
+  font-size: 25rpx;
+}
+.expsag text{
+  color: #a7a4a4;
+  font-size: 25rpx;
+  margin-right: 10rpx;
+}
+.time .time1{
+  margin-top: 10rpx;
+  }
+.time{
+  display: inline-flex;
+  flex-flow: row wrap;
+  width: 300rpx;
+  justify-content: space-between;
+}
+.tags{
+  display: inline-flex;
+}
+.tag{
+  background-color:#04a77e;
+  border-radius: 8rpx;
+  padding: 2rpx;
+  margin: 5rpx;
+  margin-bottom:0rpx;
+}
+.btn1 {
+  width: 100rpx;
+  height:30rpx;
+  background-color:#1E90FF;
+  font-size: 25rpx;
+  color: white;
+ display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  margin-top: 80rpx;
+}
+.btn2 {
+  width: 100rpx;
+  height:30rpx;
+  background-color:gold;
+  font-size: 25rpx;
+  color: white;
+ display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+.btn3 {
+  width: 80%;
+  margin-top: 20rpx;
+  background-color:#04a77e;
+  color: white;
+  border-radius: 98rpx;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}

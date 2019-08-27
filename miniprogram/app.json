@@ -1,0 +1,68 @@
+{
+  "pages": [
+    "pages/exp/index",
+    "pages/currentExp/index",
+    "pages/me/index",
+    "pages/exp/search/search",
+    "pages/exp/professionalClassification/professionalClassification",
+    "pages/exp/classification/classification",
+    "pages/exp/singleExp/singleExp",
+    "pages/exp/expGroup/expGroup",
+    "pages/me/me/me",
+    "pages/me/signIn/signIn",
+    "components/navBar/navBar",
+    "components/expsag/expsag",
+    "components/modal/modal",
+    "pages/me/edit/edit",
+    "pages/me/publish/publish",
+    "pages/me/timeBlockMake/timeBlockMake",
+    "pages/me/addExperimenter/addExperimenter",
+    "pages/me/certificate/certificate",
+    "pages/me/setting/setting",
+    "pages/me/about/about",
+    "pages/me/news/news",
+    "pages/me/published/published",
+    "pages/me/evaluation/evaluation",
+    "pages/me/participated/participated",
+    "pages/me/certificate/help/help"
+  ],
+  "window": {
+    "navigationBarBackgroundColor": "#F6F6F6",
+    "backgroundColor": "#F6F6F6",
+    "backgroundTextStyle": "light",
+    "navigationBarTitleText": "被窝 PAP",
+    "navigationBarTextStyle": "black",
+    "enablePullDownRefresh": false,
+    "navigationStyle": "custom"
+  },
+  "tabBar": {
+    "backgroundColor": "#F6F6F6",
+    "selectedColor": "#1E90FF",
+    "list": [
+      {
+        "pagePath": "pages/exp/index",
+        "text": "实验",
+        "iconPath": "images/exp0.png",
+        "selectedIconPath": "images/exp1.png"
+      },
+      {
+        "pagePath": "pages/currentExp/index",
+        "text": "正在进行",
+        "iconPath": "images/goingOn0.png",
+        "selectedIconPath": "images/goingOn1.png"
+      },
+      {
+        "pagePath": "pages/me/index",
+        "text": "我",
+        "iconPath": "images/me0.png",
+        "selectedIconPath": "images/me1.png"
+      }
+    ]
+  },
+  "usingComponents": {
+    "navBar": "/components/navBar/navBar",
+    "expsag": "/components/expsag/expsag",
+    "modal": "/components/modal/modal"
+  },
+  "sitemapLocation": "sitemap.json"
+}

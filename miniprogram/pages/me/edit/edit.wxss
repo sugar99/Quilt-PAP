@@ -1,0 +1,33 @@
+/* miniprogram/pages/me/edit/edit.wxss */
+.container{
+  width: 700rpx;
+  margin: 0 25rpx;
+  padding: 0;
+}
+input{
+  width: 100%;
+  padding: 0 25rpx;
+  height: 80rpx;
+  line-height: 40rpx;
+  font-size: 30rpx;
+  border-bottom: 3rpx solid #ced0d1;
+}
+.tips{
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  height: 70rpx;
+  font-size: 25rpx;
+  position: relative;
+  top: 0;
+  left: 0;
+}
+.tips text{
+  color: #1E90FF;
+}
+button{
+  font-size: 30rpx;
+  position: absolute;
+  top:7rpx;
+  right: 20rpx;
+}

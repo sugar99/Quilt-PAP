@@ -1,0 +1,157 @@
+/* miniprogram/pages/me/timeBlockMake/timeBlockMake.wxss */
+page {
+  background: #f6f6f6;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  font-size: 30rpx;
+}
+#navigator{
+  position: fixed;
+  width: 750rpx; 
+  left: 0;
+}
+.container{
+  width: 700rpx;
+  padding: 20rpx 0;
+  margin: 0 25rpx;
+  height: 100rpx;
+  background-color: #09cf17;
+  display: flex;
+  flex-direction: column;
+}
+.button{ 
+  margin: auto 25rpx;
+  text-align: center;
+}
+#button{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  border-radius: 10rpx;
+  top: 10rpx;
+  right: 25rpx;
+  height: 60rpx;
+  width: 100rpx;
+  background-color: #09cf17;
+  font-size: 30rpx;
+}
+#time,#nav{
+  display: flex;
+  width: 100%;
+  height: 80rpx;
+  flex-flow: row nowrap;
+  position: relative;
+  right: 0;
+  top: 0;
+}
+#nav{
+  background-color: #1E90FF;
+  justify-content: space-between;
+}
+picker{  
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+#time text{
+  margin: auto 10rpx;
+}
+#time{
+  height: 80rpx;
+  background-color: rgb(255, 255, 255);
+  border-bottom: 2rpx solid rgb(209, 211, 212);
+}
+.icon{
+  width: 50rpx;
+  height: 50rpx;
+  position: absolute;
+  right: 40rpx;
+  top: 15rpx;
+}
+.minus{
+  left: 20rpx;
+  top: 8rpx;
+}
+.plus{
+  right: 20rpx;
+  top: 8rpx;
+}
+.timeBlock{
+  height: 50rpx;
+  width: 150rpx; 
+  border-radius: 5rpx;
+  margin: 15rpx 25rpx;
+  background-color: rgb(231, 231, 231);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.dateBlock{
+  margin-top: 15rpx;
+}
+.mytitle{
+  background-color: rgb(63, 157, 252);
+  display: flex;
+  width: 653rpx;
+  height: 60rpx;
+  padding:0 25rpx;
+  flex-flow: row nowrap;
+  justify-content: center;
+  position: relative;
+  right: 0;
+  top: 0;
+}
+.titleText{
+  height: 40rpx;
+  margin: auto;
+}
+.mycontent{
+  display: flex;
+  flex-flow: row wrap; 
+  background-color: rgb(142, 196, 250);
+}
+.clockBlock{
+  margin: 15rpx;
+  height: 60rpx;
+  width: 200rpx;
+  border-radius: 10rpx;
+  background-color: rgb(233, 255, 30);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.submit{
+  position: fixed;
+  border-radius: 10rpx;
+  bottom: 0;
+  height: 100rpx;
+  width: 100%;
+  background-color: #ffffff;
+}
+#submit{  
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10rpx;
+  margin: 15rpx auto;
+  height: 60rpx;
+  width: 600rpx;
+  background-color: #09cf17;
+}
+.modal #title{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #1E90FF;
+  font-size: 35rpx;
+  padding: 25rpx;
+}
+#modalContent view{
+  display: flex;
+  align-items: center;
+  width: 100%;
+  margin: 15rpx 10rpx;
+  line-height: 40rpx;
+}

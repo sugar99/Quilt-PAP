@@ -1,0 +1,66 @@
+<!--miniprogram/pages/addExperiementer/addExperiementer.wxml-->
+<navBar text="主试认证" back="true"></navBar>
+
+<view class="container">
+<form bindsubmit="formSubmit" >
+    <view class="block">
+        <view class="w">
+          <text style="padding-left:17px;">请选择高校/公司：</text>
+        </view>
+        <view class="selectView">
+        <Select prop-array='{{selectArray}}' bind:myget='getDate'></Select>
+        </view>
+    </view>
+    
+    <view class="block">
+        <view class="w">
+          <text style="padding-left:17px;">请选择院系/单位：</text>
+        </view>
+        <view class="selectView">
+        <Select prop-array='{{selectArray}}' bind:myget='getDate'></Select>
+        </view>
+    </view>
+
+    <view class="block">
+      <text style="padding-left:17px;">请选择实验室：</text>
+      <view class="selectView">
+      <Select prop-array='{{selectArray1}}' bind:myget='getDate1'></Select>
+      </view>
+    </view>
+
+    <view class="block">    
+      <text style="padding-left:17px;">请输入学号：</text>
+
+      <view class="inputView">
+      <input name="sid" type="number" class="input"></input>
+      </view>
+    </view>
+
+    <view class="block">    
+      <text style="padding-left:17px;">请输入激活码：</text>
+
+      <view class="inputView">
+      <input type="number" name="jihuo" class="input"></input>
+      </view>
+      <view class="button">
+      <button form-type="submit"  class="anniu">激活并绑定</button>
+      </view>
+    </view>
+</form>
+<text class="wenzi" bindtap="help">如何获取激活码?</text>
+
+<modal id="modal" fadeStyle="slideUp" height="600rpx" width="600rpx" top="30%" left="75rpx">
+  <view slot="selfTitle" style="margin:auto auto;">选择</view>
+  <view slot="selfContent">
+    <view class="modalbox">       
+      <block wx:for="{{modalData.list}}" wx:key="*this">
+        <view class="modalItem" data-type="{{modalData.title}}" data-value="{{item}}" bindtap="itemSelect">
+          <view>{{item}}</view>
+        </view>
+      </block>
+    </view> 
+  </view>
+</modal>
+
+</view>
+

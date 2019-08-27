@@ -1,0 +1,23 @@
+<!--components/myModal/myModal.wxml-->
+
+<!--遮罩层-->
+<view class='mask' wx:if="{{status}}" bindtap='closeModal' style="opacity:{{opacity}}"></view>
+<!--弹出模态框-->
+<view class='modal' wx:if="{{status}}" 
+  style='width:{{width}};height:{{height}};top:{{top}};bottom:{{bottom}};left:{{left}};right:{{right}}'>
+  <!-- 模态框title -->
+  <view class='title'  bindtap='closeModal'>    
+    <slot name="selfTitle"></slot>
+    <text style='color:#aaa;font-style:normal'></text>
+    <image src="/images/fail0.png"></image> 
+  </view>
+  <!-- 模态框内容 -->
+  <view class='content' style='height:calc({{height}} - 70rpx)'>
+    <slot name="selfContent"></slot>
+  </view>
+</view>
+
+
+
+
+

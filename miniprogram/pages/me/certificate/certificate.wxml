@@ -1,0 +1,51 @@
+<!--miniprogram/pages/denglu/denglu.wxml-->
+<navBar text="主试认证" back="true"></navBar>
+
+<view class="container">
+
+    <view class="block">
+      <text class="title">请选择注册单位：</text>
+      <picker mode="multiSelector" value="{{index}}" range="{{selectList}}"
+        bindchange="selectChange"
+        bindcolumnchange="selectColumnChange">
+        <view class="unit">
+          <view class="text">
+            <block wx:if="{{tap}}">
+              {{selectList[0][index[0]]}}-{{selectList[1][index[1]]}}-{{selectList[2][index[2]]}}
+            </block>
+          </view> 
+        </view>
+      </picker>
+    </view>
+
+    <view class="block">
+      <text class="title">请输入姓名：</text>
+      <input id="name" type="text" bindinput='inputChange'></input>
+    </view>
+
+    <view class="block">
+      <text class="title">请输入学/工号：</text>
+      <input id="schoolID" type="number" bindinput='inputChange'></input>
+    </view>
+
+    <view class="block">    
+      <text class="title">请输入手机号：</text>
+      <input id="phone" type="number" maxlength='11' bindinput='inputChange'></input>
+    </view>
+
+    <view class="block"> 
+      <text class="title">请输入常用邮箱：</text>
+      <input id="e-mail"  type="text" bindinput='inputChange'></input>
+    </view>
+
+    <view class="block">    
+      <text class="title">请输入激活码：</text>
+      <input id="code" type="text" bindinput='inputChange'></input>
+    </view>
+
+    <view class="bottom">
+      <button type="primary" plain="true" disabled="{{!completed}}" bindtap="submit">激活并绑定</button>
+      <text bindtap="help">如何获取激活码?</text>
+    </view>
+
+</view>

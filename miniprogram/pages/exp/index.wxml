@@ -1,0 +1,224 @@
+<!--pages/exp/index.wxml-->
+<navBar text="被试PAP"  HEIGHT="{{HEIGHT}}" bind:getHeight="getHeight"></navBar>
+
+<!--搜索框-->
+<view id="search" style="top:{{NAVHEIGHT}}px">
+    <button type="default" bindtap="search">
+      <icon type="search" size="20"/>
+    </button>
+</view>
+<!--占位框-->
+<view style="width:100%;height:70rpx;"></view>
+
+
+<scroll-view id="container" scroll-y="true">
+  <!--图片宣传-->
+  <view id="ad">
+      <swiper indicator-dots="true" autoplay="true" circular="true" interval="2000" duration="700">
+          <swiper-item wx:for="{{imgPath}}" wx:key="*this">
+            <image src="{{item}}" mode="aspectFill"></image>
+          </swiper-item>
+      </swiper>
+  </view>
+
+  <!--实验分类-->
+  <view id="classification"> 
+    <view class="block" wx:for="{{classification}}" wx:key="*this" bindtap="classification" data-value="{{item.text}}">
+      <image mode="aspectFill" src="{{item.iconPath}}"></image>{{item.text}}
+    </view>
+    <view id="professionalClassification" bindtap="showProfessionalClassification">
+      <image mode="aspectFill" src=""></image>专业
+    </view>
+  </view>
+
+  <!--实验显示页面-->
+  <view id="expShow">  
+
+    <!--导航和时间-->
+    <view id="nav_time" class="{{fixed ? 'fixed' : '' }}">
+      <!--时间选择-->
+      <view id="time">
+        <view> 空闲时间：</view>
+        <view class="section" style="width: 220rpx">
+          <picker mode="date" value="{{today}}" start="{{today}}" end="{{endDate}}" bindchange="bindDateChange">
+            <view class="picker">{{today}}</view>
+          </picker>
+        </view>
+
+        <view id="timeSel">
+          <view class="section" style="width: 120rpx">
+            <picker mode="time" value="{{time1}}" start="{{now}}" bindchange="bindTimeChange1">
+              <view class="picker">{{time1}}</view>
+            </picker>
+          </view>
+          <view>~</view>
+          <view class="section" style="width: 120rpx">
+            <picker mode="time" value="{{time2}}" start="{{time2start}}" bindchange="bindTimeChange2">
+              <view class="picker">{{time2}}</view>
+            </picker>
+          </view>
+        </view>
+      </view>
+
+      <view id="nav">
+        <view class="{{currentTab==0 ? 'on' : ''}}" data-current="0" bindtap="swichNav">单个实验</view>
+        <view class="{{currentTab==1 ? 'on' : ''}}"  data-current="1" bindtap="swichNav">实验套餐</view>
+      </view>
+      <view class="line"></view>    
+    </view>
+    <view wx:if="{{fixed}}" style="width:100%;height:120rpx;"></view>
+
+    <!--实验-->
+    <swiper id="exps" current="{{currentTab}}" bindchange="bindChange">
+      <!--单个实验-->
+      <swiper-item wx:if="currentTab==1">
+        <scroll-view scroll-y="true">
+          <block wx:for="{{explist}}" wx:key="*this">
+            <expsag type="single" item="{{item}}"></expsag>
+            <view class="button" catchtap="book" data-value="{{item}}">预 约</view> 
+          </block>
+        </scroll-view>
+      </swiper-item>
+
+      <!--实验套餐-->
+      <swiper-item wx:if="currentTab==0">
+        <scroll-view scroll-y="true">
+          <block wx:for="{{group}}" wx:key="*this">
+              <expsag type="group" item="{{item}}" id='epxSaG'></expsag>
+              <view class="button" catchtap="book" data-value="{{item}}">预 约</view>
+          </block>
+        </scroll-view>
+      </swiper-item>
+    </swiper>
+
+  </view>
+ 
+  <!--向上弹出-->
+  <modal id="modal" fadeStyle="slideUp" >
+    <view slot="selfTitle" style="margin:auto auto;">实验预约确认</view> 
+
+      <!--实验套餐-->     
+      <block wx:if="{{currentItem.type=='group'}}">
+        <view slot="selfContent">
+        <view catchtap="groupExp" data-item="{{currentItem}}">
+          <view class="name">{{currentItem.name}}<image src=""></image><view>优选套餐</view></view>
+          <view class="detail1">
+            <view class="score">{{currentItem.score}}分</view>
+            <view class="reward" space="ensp">￥{{currentItem.reward}} <text>| 约</text>
+              {{currentItem.expTime}}<text>min</text></view>
+            <view class="distance" space="ensp"><text>距离</text>{{currentItem.distance}}
+              <text>KM</text> <text>| 步行</text>
+              {{currentItem.footTime}}<text>min</text>
+            </view>
+          </view>
+        </view>
+          <view style="height:30rpx;"></view>
+          <block wx:for="{{currentItem.subExpList}}">
+            <view class="modalBlock" bindtap="singleExp" data-item="{{item}}">
+              <image src="{{item.iconPath}}"> </image>
+              <view class="detail">
+                <view class="title">{{item.name}}
+                  <image src="" style="height:40rpx;width:30rpx;background-color:#FFFF00"></image>
+                  <text style="color:#FFD700;position:absolute;right:0">评分：{{item.score}}</text>
+                </view>  
+                <view class="details">
+                  ￥{{item.reward}}元
+                  <text space="ensp"> 约 </text>{{item.expTime}}<text>min</text>
+                  <text space="ensp"> 距离你约 </text>{{item.distance}}<text>KM</text>
+                </view>
+                <view class="experimenter" catchtap="experimenter">
+                  <text>主试：</text>
+                  <image src="{{item.experimenterInfo.avatarPath}}" id="avatar"></image>
+                  <text style="font-size:30rpx;color:#1E90FF;display: flex;flex-direction: row;">
+                    {{item.experimenterInfo.name}}</text>
+                  <image src="{{item.experimenterInfo.gender==1 ? '../../images/male.png' : '../../images/female.png'}}" id="gender"></image>
+                </view>
+              </view>
+            </view>
+            <view class="modalBlock" style="height:100rpx;width:100%;displayflex;" wx:if="{{currentItem.subExpList[index+1]}}">
+              <view style="font-size:25rpx;">
+                下一实验将于<text style="font-size:30rpx;color:#1E90FF">{{15}}</text>min后开始，请安排好时间前往:
+                <view style="font-size:30rpx;color:#1E90FF">{{currentItem.subExpList[index+1].place}}</view>
+              </view>
+            </view>
+          </block>
+          <view style="height:80rpx;width:100%"></view>
+        <view id='button'><view bindtap="submit">确认预约实验</view></view>
+        </view>
+      </block>
+
+      <!--单个实验-->
+      <block wx:if="{{currentItem.type=='single'}}">
+        <view slot="selfContent">
+          <view class="modalBlock">
+            <image src="{{currentItem.iconPath}}"> </image>
+            <view class="detail">
+              <view class="title">{{currentItem.name}}
+                <image src="" style="height:40rpx;width:30rpx;background-color:#FFFF00"></image>
+                <text style="color:#FFD700;position:absolute;right:0">评分：{{currentItem.score}}</text>
+              </view>  
+              <view class="details">
+                  ￥{{currentItem.reward}}元
+                <text space="ensp" class="grayFont"> 约 </text>{{currentItem.expTime}}<text>min</text>
+                <text space="ensp" class="grayFont"> 距离你约 </text>{{currentItem.distance}}<text>KM</text></view>
+              <view class="experimenter" catchtap="experimenter">
+                <text class="grayFont">主试：</text>
+                <image src="{{currentItem.experimenterInfo.avatarPath}}" id="avatar"></image>
+                <text style="font-size:30rpx;color:#1E90FF;display: flex;flex-direction: row;">
+                  {{currentItem.experimenterInfo.name}}</text>
+                <image src="{{currentItem.experimenterInfo.gender==1 ? '../../images/male.png' : '../../images/female.png'}}" id="gender"></image>
+              </view>
+          </view>
+          </view>
+          <view class="modalBlock" style="display: flex;flex-direction: column;">
+              <view class="content"> <text class="grayFont">地点：</text>
+                <view class="textContent">{{currentItem.place}}</view></view>
+              <view class="content"> <text class="grayFont">简介：</text>
+                <view class="textContent">{{currentItem.abstract}}</view></view>
+              <view class="tags">
+                <text class="grayFont">要求：</text>
+                <block wx:for="{{currentItem.requirement}}" wx:key="*this">
+                  <view class="tag" style="margin: 5rpx;">{{item}}</view>
+                </block>
+              </view>
+              <view class="tags">
+                <text style="font-size:25rpx">评价：</text>
+                <block wx:for="{{currentItem.comments}}" wx:key="*this">
+                  <view class="tag" style="margin: 5rpx;">{{item}}</view>
+                </block>
+              </view>
+          </view>
+          <view class="modalBlock">
+            <text style="text-align:center;margin:auto 0;">留言：</text>
+            <input placeholder="客官想对主试说点啥..." maxlength="100"></input>
+          </view>
+          <view class="modalBlock" style="font-size:25rpx;color:3#000;margin-top:10rpx;">
+            <text>日期时间选择: </text>   
+            <image class="legend" style="background-color:#008080"></image>可预约
+            <image class="legend" style="background-color:#DC143C"></image>不可预约
+            <image class="legend" style="background-color:#FFFF00"></image>已勾选
+          </view>                          
+          <view class="modalBlock" style="flex-direction:column;">
+              <block wx:for="{{currentItem.availableTime}}" wx:key="*this" wx:for-item='date' wx:for-index='dateIndex'>
+                <view class="date">{{date.date}}:</view>
+                <view class="tags">
+                  <block wx:for="{{date.clock}}" wx:key="*this" wx:for-item='clockList' wx:for-index='clockIndex'>
+                    <view class="tag" 
+                      style="background-color:{{clockList[3]==1?'#FFFF00':clockList[2]==clockList[1]?'#DC143C':'#008080'}}"
+                      bindtap='selClock' data-dateindex="{{dateIndex}}" data-clockindex="{{clockIndex}}">
+                      {{clockList[0]}}
+                    </view>
+                  </block>
+                </view>
+              </block>
+          </view>
+          <view style="height:80rpx;width:100%"></view>
+          <view id='button'><view bindtap="submit">确认预约实验</view></view>
+        </view>
+      </block>
+
+   </modal>
+
+
+</scroll-view>
+          

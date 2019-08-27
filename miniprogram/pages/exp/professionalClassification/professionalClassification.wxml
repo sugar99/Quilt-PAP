@@ -1,0 +1,12 @@
+<!--miniprogram/pages/exp/professionalClassification/professionalClassification.wxml-->
+<!--自定义导航栏-->
+<navBar text="专业分类" back="true"></navBar>
+<!--专业分类-->
+<view id="container"> 
+  <block wx:for="{{professionalClassification}}" wx:key="*this">
+    <view class="block"  bindtap="professionalClassification" data-value="{{item.text}}">
+      <image mode="aspectFill" src="{{item.iconPath}}"></image>
+      <view>{{item.text}}</view>
+    </view>
+  </block>
+</view>

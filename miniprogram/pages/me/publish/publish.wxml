@@ -1,0 +1,42 @@
+<!--miniprogram/pages/Publish_Experiment/Publish.wxml-->
+<navBar back="true" text="发布新实验"></navBar>
+
+<view class="container">
+  <view class="option" style="height:200rpx;" bindtap="uploadPic">
+    <view class="optionText">
+      <text>宣传图</text>
+      <image src="{{picturePath}}" id="picture"></image></view>
+    <image class="go" src="{{'/images/go0.png'}}" style="top:80rpx;"></image>
+  </view>
+  
+  <block wx:for="{{inputList}}" wx:for-item="inputItem" wx:key="*this" wx:for-index="Index">
+    <view class="block">
+      <view class="inputTitle">{{inputItem.title}}</view>
+      <block wx:for="{{inputItem.items}}" wx:key="*this">
+        <view class="option" bindtap="edit" data-item="{{item}}" 
+          data-value="{{expInfo[item[0]]?expInfo[item[0]]:item[2]}}">
+          <view class="optionText">
+            <text style="flex-shrink:0">{{item[1]}} </text>           
+            <text style="color:{{expInfo[item[0]]?'#1E90FF':'#ced0d1'}};flex-wrap:wrap;"
+            >{{expInfo[item[0]]!==''?expInfo[item[0]]:item[2]}}</text>
+          </view>
+          <image class="go" src="{{goPath}}"></image>
+        </view>
+      </block>
+    </view>
+  </block>
+
+  <button type="primary" size='default' disabled="{{!completed}}" bindtap="submit">确认提交</button>
+</view>
+
+  <modal id='modal' fadeStyle="slideUp" height="{{height}}rpx;">  
+    <!-- 模态框title -->
+    <view slot="selfTitle" style="margin:auto auto;">请选择</view>
+    <!-- 模态框内容 -->
+    <view slot="selfContent" catchtap="select">
+        <block wx:for="{{obj.value}}" wx:key="*this">
+          <view class="item"  data-value="{{item}}"   data-title="{{obj.title}}"> {{item}} </view>
+        </block>       
+    </view>
+  </modal>
+

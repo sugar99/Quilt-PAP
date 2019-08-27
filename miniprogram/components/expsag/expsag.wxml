@@ -1,0 +1,76 @@
+<!--components/expSaG.wxml-->
+<view class="expsag">
+
+<!--单个实验-->
+<block wx:if="{{type=='single'}}">
+  <view class="exp" bindtap="chooseSingle">
+    <view class="name">{{item.expName}}</view>
+    <view class="detail1">
+    <!--
+      <view class="score">{{item.score}}分</view>-->
+      <view class="reward" space="ensp">￥{{item.pantReward}} <text>| 约</text>{{item.expDuration}}<text>min</text></view>
+      <!--
+      <view class="distance" space="ensp"><text>距离</text>{{item.distance}}<text>KM</text></view>
+      <view class="distance" space="ensp"><text>步行</text>{{item.footTime}}<text>min</text></view>-->
+    </view>
+    <view class="econtent">
+      <image src="{{item.imgPath}}"></image>
+      <view class="detail2">
+        <view><text>地点:</text>{{item.expLocation}}</view>
+        <view><text>简介:</text>{{item.expIntro}}</view>
+        <view class="tags">
+          <text>要求:</text>
+          <block wx:for="{{item.requirement}}" wx:key="*this">
+            <view class="tag">{{item}}</view>
+          </block>
+        </view>
+        <!--
+        <view class="tags">
+          <text>评论:</text>
+          <block wx:for="{{item.comments}}" wx:key="*this"><view class="tag">{{item}}</view>
+          </block>
+        </view>-->
+      </view>
+    </view>
+  </view>
+</block>
+
+<!--实验套餐-->
+<block wx:if="{{type=='group'}}">
+    <view class="group" bindtap="chooseGroup">
+        <view class="name">{{item.name}}<image src=""></image><view>优选套餐</view></view>
+        <view class="detail1">
+          <view class="score">{{item.score}}分</view>
+          <view class="reward" space="ensp">￥{{item.reward}} <text>| 约</text>{{item.expTime}}<text>min</text></view>
+          <view class="distance" space="ensp"><text>距离</text>{{item.distance}}<text>KM</text> <text>| 步行</text>
+            {{item.footTime}}<text>min</text>
+          </view>
+        </view>
+        <view class="gcontent">
+          <block wx:for="{{item.subExpList}}" wx:key="*this">
+            <view  class="subImage" wx:if="{{index<3}}">
+              <image src="{{item.imagePath}}"></image>
+            <view class="subTitle">￥{{item.reward}}|{{item.expTime}}min</view>
+            </view>
+          </block>
+          <view class="subNames">
+            <block wx:for="{{item.subExpList}}" wx:key="*this">
+                <view class="subName" wx:if="{{index<4}}" style="{{largeGroup?'height:30rpx;margin: 5rpx 10rpx;':''}}">
+                  <block wx:if="{{index<3}}">
+                    <text space="ensp" style="color:#000">{{index+1}}. {{item.name}}</text>
+                  </block>
+                  <block wx:if="{{largeGroup && index==3}}">
+                    <text space="ensp" style="color:#1E90FF;">套餐共{{groupLength}}个实验，点击查看</text>
+                  </block>                  
+                </view>
+            </block>
+          </view>
+        </view>
+    </view>
+</block>
+
+
+
+
+
+</view>

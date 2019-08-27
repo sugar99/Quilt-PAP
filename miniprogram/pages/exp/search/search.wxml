@@ -1,0 +1,34 @@
+<!--miniprogram/pages/exp/search/search.wxml-->
+<navBar text="搜索实验" back="true"></navBar>
+<!--搜索框-->
+<view class="search" style="top:{{total}}px;">
+    <view class="searchIcon"><icon type="search" size="20" color="#FFF"/></view>
+    <input type="text" maxlength="20" placeholder='搜索实验' bindconfirm='search' value="{{searchContent}}" focus="true" confirm-type="search"/>
+</view>
+
+<!--搜索提示-->
+<block id="tips" wx:if="{{tips}}">
+<view id="recommend">
+  <view class="title">
+    <view class="block">推荐搜索</view>
+  </view>
+  <view class="content">
+    <view class="tipsItem" wx:for="{{reTipsItem}}" wx:key="*this" bindtap="myTap" data-value="{{item}}">{{item}}</view>
+  </view>
+</view>
+
+<view id="history" wx:if="{{history}}">
+  <view class="title">
+    <view class="block">历史搜索</view>
+    <view class="clear" bindtap="clearHistory">清除</view>
+  </view>
+  <view class="content">
+    <view class="tipsItem" wx:for="{{hisTipsItem}}" wx:key="*this" bindtap="myTap" data-value="{{item}}">{{item}}</view>
+  </view>
+</view>
+
+</block>
+<!--搜索结果-->
+<block id="result" wx:if="{{result}}">
+<view class="titleLine">这是关于[{{searchContent}}]的实验搜索结果</view>
+</block>

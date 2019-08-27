@@ -1,0 +1,62 @@
+/* miniprogram/pages/addExperiementer/addExperiementer.wxss */
+page {
+  background: #f6f6f6;
+  display: flex;
+  flex-direction: column;
+  font-size: 30rpx;
+}
+.container{
+  margin: 0;
+  padding: 0;
+  width: 100%;
+}
+.button{
+  padding-block-start: 20px;
+}
+.block{
+  margin-top: 20px;
+  margin-bottom: 30px;
+}
+
+.w{
+  padding-block-start: 20px;
+}
+
+.input{
+ text-align: right;
+ padding: 0 10rpx;
+ height: 60rpx;
+}
+ 
+.inputView{
+  width: 300px;
+  background: rgba(128, 128, 128, 0.103);
+ margin-left: 15px;
+ margin-right: 15px;
+ margin-top: 1px;
+}
+
+
+.anniu {
+  border:1px solid rgba(0, 0, 0, 0.836);
+  height: 100rpx;
+  width: 180px;
+  margin-top: 20rpx;
+  background-color: transparent;
+  color:gray;
+  font-size: 20px;
+}
+.wenzi{
+  padding-left: 20px;
+  padding-block-start: 30px;
+  font-size: 14px;
+  color: blue;
+}
+.wenzi1{
+  padding-left: 20px;
+  font-size: 14px;
+  color: blue;
+}
+.selectView{
+  margin-top: 1px;
+}

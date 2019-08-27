@@ -1,0 +1,2 @@
+<!--miniprogram/pages/me/published/published.wxml-->
+<navBar text="发布过的实验" back="true"></navBar>

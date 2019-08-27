@@ -1,0 +1,10 @@
+<!--miniprogram/pages/me/edit/edit.wxml-->
+<navBar back="true" text="编辑{{title}}"></navBar>
+<view class="container">
+  <input focus="true" type="{{type}}" name='content' placeholder="输入" 
+    value='{{content}}' bindinput="changed"></input>
+  <view class="tips">
+    <text>还可以输入<text style="color:{{lengthLeft<0?'#FF0000':''}}">{{lengthLeft}}</text>个字</text>
+    <button size="mini" type="primary" bindtap="submit">确定</button>
+  </view>
+</view>

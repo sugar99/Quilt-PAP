@@ -1,0 +1,2 @@
+<!--miniprogram/pages/exp/expGroup/expGroup.wxml-->
+<navBar text="{{title}}" back="true"></navBar>

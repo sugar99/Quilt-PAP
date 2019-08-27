@@ -1,0 +1,84 @@
+<!--miniprogram/pages/me/timeBlockMake/timeBlockMake.wxml-->
+<navBar back="true" text="{{title}}" bind:getHeight="getHeight"></navBar>
+<view id="navigator" style="top:{{NAVHEIGHT}}px;">
+  <view id="nav">
+    <view class="button" bindtap="dateCount" data-mode="minus">前一天</view>
+    <picker mode="date" fields='day' bindchange="dateChange"
+        start="{{startDate}}" end="{{endDate}}">
+      {{currentDate[0]}}月{{currentDate[1]}}日 星期{{currentDate[2]}}
+    </picker>
+    <view class="button" bindtap="dateCount" data-mode="plus">后一天</view>
+  </view>
+  <view id="time">
+    <view class="button" bindtap="help"> 时间： </view>
+    <picker mode='time' bindchange="timechange" data-id="1"
+        start="{{startTime}}" end="{{endTime}}">
+      <view class="timeBlock">{{currentTime1}}</view>
+    </picker>
+    <text> - </text>
+    <picker mode='time' bindchange="timechange" data-id="2"
+        start="{{currentTime1}}" end="{{endTime}}">
+      <view class="timeBlock">{{currentTime2}}</view>
+    </picker>
+    <view id='button' bindtap="timeBlockSure">{{buttonText}}</view>
+  </view>  
+</view>
+<view class="container">
+  <block wx:if="{{timeBlock}}">
+    <view style="height:160rpx;width:100%"></view>
+    <view class="block">     
+      <block wx:for="{{dateviewst}}" wx:key="*this">
+        <view class="dateBlock">
+          <view class="mytitle">
+            <image class='icon minus' src='/images/minus0.png' catch:tap="dateBlockCviewck" data-mode='minus'
+             data-item='{{item}}'></image>
+            <picker mode="date" fields='day' catch:change="subDateChange" 
+              catch:longpress="subDateLongpress"data-item='{{item}}'
+              start="{{startDate}}" end="{{endDate}}">
+              {{item.date[0]}}月{{item.date[1]}}日 星期{{item.date[2]}}
+            </picker>
+            <image class='icon plus' src='/images/plus0.png' catch:tap="dateBlockCviewck"  data-mode='plus' 
+              data-item='{{item}}'></image>
+          </view>
+          <view class="mycontent">
+            <block wx:for="{{item.clockviewst}}" wx:for-item="clockBlock" wx:key="*this">
+              <view class="clockBlock" catch:longpress="clockBlockLongpress" 
+                catch:tap="clockBlockTap" data-item="{{item}}" 
+                data-time='{{clockBlock}}'>
+                {{clockBlock}}
+              </view>
+            </block>
+          </view>
+        </view>
+      </block> 
+    </view>
+    <view style="height:80rpx;width:100%"></view>
+    <view class="submit">
+      <button id="submit" bindtap="submit">我选好了</button>
+    </view>
+  </block>
+  <block wx:if="{{chooseBlock}}">
+
+  </block>
+</view>
+
+<modal id='modal' fadeStyle="slideUp" height="80%" > 
+  <view slot="selfTitle"  id="title" style="margin:auto auto;">
+    <view>使用帮助</view>
+  </view>
+  <view slot="selfContent">
+    <view id='modalContent'>
+      <view>1. 点击日期或时间出现滚轮弹窗快速选择和输入</view>
+      <view>2. '添加'按钮将在相应日期块中加入一个当前时间块</view>
+      <view>3. '轻触'日期块可以单独更改日期</view>
+      <view>4. '长按'日期块快速输入当前日期块的日期</view>
+      <view>5. '轻触'日期块左上角'+'可快速添加整个日期块。</view>
+      <view>6. '轻触'日期块左上角'-'可快速删除整个日期块。</view>
+      <view>7. '轻触'时间块快速输入当前时间块的时间</view>
+      <view>8. '长按'时间块可以删除当前时间块</view>
+      <view>————————————————</view>
+      <view>*. 最终不可有相同日期块</view>
+      <view>*. 最终不可有超过7个日期块</view>
+    </view>       
+  </view>
+</modal>

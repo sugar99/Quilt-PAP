@@ -1,0 +1,97 @@
+/* miniprogram/pages/exp/search/search.wxss */
+page {
+  background: #f6f6f6;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+.search{
+  width: 750rpx;
+  height:70rpx;
+  display: flex;
+  justify-content: space-between;
+  background-color: #1E90FF;
+}
+.searchIcon{
+  width: 50rpx;
+  height: 70rpx;
+  display: flex;
+  justify-content: center;
+  margin-left: 25rpx;
+}
+.searchIcon icon{
+  margin: auto auto;
+}
+.search input{
+  width: 650rpx;
+  height:70rpx;
+  position: absolute;
+  right: 25rpx;
+  padding-left: 10rpx;
+  font-size: 0.7rem;
+  border-radius: 20rpx;
+  border: thick solid #1E90FF;
+  background-color: rgb(255, 255, 255);
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+}
+#tips #result{
+  position: absolute;
+  top: 0;
+  width: 700rpx;
+}
+.container{
+}
+#tips{
+
+}
+#result{
+
+}
+.title{
+  position: relative;
+  top: 0;
+  display: flex;
+  border-bottom: 2rpx solid rgb(199, 196, 196);
+  justify-content: space-between;
+}
+.title .clear{
+  margin: auto auto;
+  padding: 6rpx;
+  margin-right: 25rpx;
+  color: rgb(238, 53, 53);
+}
+.content{
+  display: flex;
+  flex-flow: row wrap;
+}
+.tipsItem{
+  border: 2rpx solid rgb(199, 196, 196);
+  margin: 10rpx 15rpx;
+}
+#recommend, #history{
+  width: 100%;
+  font-size:  0.7rem;
+}
+#recommend{
+  height:100rpx;
+}
+#history{
+  margin-top: 20rpx;
+  height: 400rpx;
+}
+.block{
+  text-align: center;
+  margin: 10rpx;
+  width: 15%;
+  border-radius: 10rpx;
+}
+.titleLine{
+  align-self: center;
+  width: 700rpx;
+  color:#c0c0c0 ;
+  font-size: 0.6rem;
+  text-align: center;
+  border-bottom: 1rpx solid #c0c0c0;
+}

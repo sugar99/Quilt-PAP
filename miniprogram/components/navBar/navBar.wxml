@@ -1,0 +1,26 @@
+<view class='nav' style='height: {{status + navHeight}}px' bind:transitionend="getHeight">
+
+    <view class='status' style='height: {{status}}px;{{containerStyle}}'></view>
+    <view class='navbar' style='height:{{navHeight}}px;{{containerStyle}}'>
+        <!--back&home图标-->
+        <view class="bhArea" style="height:{{navHeight}}px;">
+        <view class='back' wx:if="{{back}}" bindtap='back'>
+            <image src='../../images/back.png'></image>
+        </view>
+        <view class='home' wx:if="{{home}}" bindtap='home'>
+            <image src='../../images/home.png'></image>
+        </view>
+        </view>
+        <!--标题文字或者图片-->
+        <view class="titleArea" style="width:{{titleWidth}}px;height:{{navHeight}}px;">
+          <view class='icon' wx:if="{{icon}}">
+              <image src='{{icon}}' style='{{iconStyle}}' mode="aspectFit"></image>
+          </view>
+          <view class='text' wx:if="{{!icon}}">
+              <view style='{{textStyle}}'>{{text}}</view>
+          </view>
+        </view>
+    </view>
+</view>
+<!--占位-->
+<view style='height: {{status + navHeight}}px'></view>

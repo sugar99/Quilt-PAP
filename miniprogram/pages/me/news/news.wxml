@@ -1,0 +1,2 @@
+<!--miniprogram/pages/me/news/news.wxml-->
+<navBar text="消息" back="true"></navBar>

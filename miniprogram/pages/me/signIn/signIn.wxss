@@ -1,0 +1,90 @@
+/* miniprogram/pages/signIn/signIn.wxss */
+page {
+  background: #f6f6f6;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  font-size: 30rpx;
+}
+.container{
+  width: 100%;
+  padding: 0;
+  background-color: white;
+}
+.container .option{
+  margin-top: 0;
+  border-bottom: 2rpx solid #e2e2e2;
+}
+.option{
+  width: 700rpx;
+  height: 80rpx;
+  display: flex;
+  flex-direction: row;
+}
+.selectbox{
+  display: flex;
+  flex-direction: row-reverse;
+  height: 100%;
+  width: 430rpx;
+}
+.modalbox{
+  height: 100%;
+  width: 500rpx;
+}
+.modalItem{
+  height: 60rpx;
+  width: 450rpx;
+  border-bottom: 2rpx solid #1E90FF;
+  text-align: center;
+}
+.modalItem view{
+  height: 40rpx;
+  margin: 15rpx auto;
+}
+#userAvatar{
+  width: 150rpx;
+  height: 150rpx;
+  border-radius: 15rpx;
+  margin: auto 0;
+  margin-left: 280rpx;
+  background-color: rgb(225, 230, 235);
+}
+.optionText{
+  margin: auto 10rpx;
+  width: 200rpx;
+}
+.go{
+  width: 40rpx;
+  height: 40rpx;
+  margin: auto 15rpx;
+}
+input,#birth{
+  margin: auto 0;
+  width: 600rpx;
+  text-align: right;
+}
+.radioStyle{
+  margin: auto 5rpx;
+  text-align: center;
+  width: 70rpx;
+  border-radius: 6px;
+  padding: 5rpx;
+  height: 25px;
+  border: 2px solid #39f;
+}
+.select{
+  margin: auto 5rpx;
+  text-align: center;
+  border-radius: 6px;
+  color: white;
+  width: 70rpx;
+  padding: 5rpx;
+  height: 25px;
+  border: 2px solid #39f;
+  background-color: #39f;
+}
+.submit{
+  border: 2px solid #39f;
+  margin-top:30px;
+  z-index: 10;
+}

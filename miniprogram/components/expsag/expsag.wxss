@@ -1,0 +1,128 @@
+/* components/expSaG.wxss */
+.expsag{
+  position: relative;
+  top: 0;
+  left: 0;
+}
+.exp{
+  width: 700rpx;
+  font-size: 20rpx;
+  margin-top: 15rpx;
+  display: flex;
+  flex-direction: column;
+}
+.group{
+  height: 220rpx;
+  width: 700rpx;
+  font-size: 20rpx;
+  display: flex;
+  flex-direction: column;
+  padding: 5rpx 5rpx;
+}
+.gcontent{
+  display: flex;
+  margin-top: 10rpx;
+  width: 700rpx;
+  height: 125rpx;
+}
+.gcontent subImage{
+  width: 140rpx;
+  height: 140rpx;
+  display: flex;
+}
+.subImage image{
+  width: 100rpx;
+  height: 100rpx;
+  margin: 0rpx 10rpx;
+  border-radius: 15rpx;
+  background-color: rgb(226, 230, 46);
+}
+.subImage .subTitle{
+  margin-left: 8rpx;
+}
+.subNames{
+  height: 125rpx;
+  width: 325rpx;
+  margin-left: 5rpx;
+}
+.subName{
+  height: 35rpx;
+  width: 315rpx;
+  font-size: 25rpx;
+  margin: 10rpx 10rpx;
+}
+.name{
+  font-size: 30rpx;
+  font-weight: bolder;
+  margin: 0 10rpx;
+  width: 590rpx;
+  display: inline-flex;
+}
+.name image{
+  width: 30rpx;
+  height: 40rpx;
+  margin-left: 10rpx;
+  background-color: rgb(226, 230, 46);
+}
+.name view{
+  font-size: 20rpx;
+  font-weight: bolder;
+  border-radius: 5rpx;
+  width: 80rpx;
+  margin: 5rpx;
+  padding: 5rpx;
+  background-color: #1E90FF;
+}
+.detail1{
+  display: inline-flex;
+  flex-flow: row wrap;
+  margin: 0 10rpx;
+  width: 590rpx;
+}
+.detail1 view{
+  width: 255rpx;
+  margin: 0 30rpx 0 10rpx;
+}
+
+/*class=econtent 单个(exp)实验样式*/
+.econtent{
+  display: flex;
+  font-size: 25rpx;
+}
+.econtent image{
+  width: 100rpx;
+  height: 100rpx;
+  border-radius: 10rpx;
+  margin: 10rpx 0;
+  background-color: rgb(226, 230, 46);
+}
+.econtent .detail2{
+  display: flex;
+  flex-direction: column;
+  width: 570rpx;
+  padding: 0 5rpx;
+  margin-left: 5rpx;
+}
+.reward,.distance{
+  color: #04a77e;
+  font-size: 25rpx;
+}
+.score{
+  color: #e2ba05;
+  font-size: 25rpx;
+}
+.expsag text{
+  color: #a7a4a4;
+  font-size: 20rpx;
+  margin: 5rpx;
+}
+.tags{
+  display: inline-flex;
+}
+.tag{
+  background-color: #1E90FF;
+  border-radius: 5rpx;
+  font-size: 20rpx;
+  padding: 2rpx;
+  margin: 5rpx;
+}

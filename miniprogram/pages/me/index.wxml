@@ -1,0 +1,52 @@
+<!--miniprogram/pages/me/index.wxml-->
+<navBar text="我"></navBar>
+
+  <!-- 用户信息以及登录 -->
+<view class="userinfo">
+    <view class="userAvatar" bindtap="me">
+      <image src="{{avatarUrl}}">PAP</image>
+    </view>
+  <view class="other">
+    <block wx:if="{{!logIn}}">
+      <button
+        size="mini"
+        type="primary"
+        bindtap="login">点击注册
+      </button>
+    </block>
+    <block wx:if="{{logIn}}">
+      <view class="details" bindtap="me">
+        <view class="nameLine">
+          <text id="nickname">{{userWxInfo.nickName}}</text>
+          <image src="{{userWxInfo.gender==1?imageList[2]:imageList[3]}}"></image>
+        </view>
+        <image id="news" src="{{userInfo.news>0?imageList[0]:imageList[1]}}" catchtap="news"></image>
+      </view>
+    </block>
+  </view>
+</view>
+
+<!-- options -->
+<block wx:for="{{linkList}}" wx:key="*this">
+  <view class="container">
+    <block wx:for="{{item}}" wx:for-item='option' wx:key="*this">
+    <block wx:if="{{privilege || (!option.privilege&&!privilege)}}">
+      <view class="option" data-link="{{option.linkPath}}" bindtap="optionTap" bindlongtap="optionLongtap">
+        <image  class="icon"
+          src="{{logIn?option.imagePath.logIn:option.imagePath.logOut}}"></image> 
+        <view class="optionText {{logIn?'logIn':'logOut'}}">
+          <text>{{option.text}}</text>
+          <block wx:if="{{option.text=='主试认证'}}">          
+            <text class="logOut" style="font-size: 27rpx;"
+            >{{!logIn?'(未登录)':privilege?'(已认证)':'(未认证)'}}
+            </text>
+          </block>
+        </view>
+        <image class="go" src="{{logIn?imageList[5]:imageList[6]}}"></image>
+      </view>
+    </block>
+    </block>
+  </view>
+</block>
+
+

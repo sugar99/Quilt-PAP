@@ -1,0 +1,2 @@
+<!--miniprogram/pages/me/certificate/help/help.wxml-->
+<navBar text="主试权限相关帮助" back="true"></navBar>

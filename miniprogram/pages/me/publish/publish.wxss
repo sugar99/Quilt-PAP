@@ -1,0 +1,113 @@
+/* miniprogram/pages/Publish_Experiment/Publish.wxss */
+page {
+  display: flex;
+  flex-direction: column;
+  font-size: 30rpx;
+  background-color: white;
+}
+.container{
+  width: 700rpx;
+  padding: 0;
+  margin: 0 25rpx;
+}
+.block{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+.inputTitle{
+  height:40rpx;
+  font-size: 25rpx;
+  color: #1E90FF;
+  width: 100%;
+  text-align: left;
+  border-bottom: 3rpx solid #ced0d1;
+}
+#picture{
+  width: 150rpx;
+  height: 150rpx;
+  border-radius: 15rpx;
+  margin: auto 0;
+  margin-left: 230rpx;
+  background-color: #39f;
+}
+.container .option{
+  margin-top: 0;
+}
+.option{
+  width: 700rpx;
+  height: 80rpx;
+  position: relative;
+  top: 0;
+  left: 0;
+  margin: 10rpx;
+  overflow: hidden;
+  display: flex;
+  flex-flow: row nowrap;
+}
+.optionText{
+  margin-left: 0;
+  width: 660rpx;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+}
+.option text{
+  font-size: 30rpx;
+  margin: auto 5rpx;
+  overflow: hidden;
+  text-align: right;
+  color: #252525;
+  line-height: 40rpx;
+}
+.go{
+  width: 40rpx;
+  height: 40rpx;
+  position: absolute;
+  right: 0;
+  top: 20rpx;
+}
+.selectbox{
+  display: flex;
+  flex-direction: row-reverse;
+  height: 100%;
+  width: 430rpx;
+}
+.modalbox{
+  height: 100%;
+  width: 500rpx;
+}
+.modalItem{
+  height: 60rpx;
+  width: 450rpx;
+  border-bottom: 2rpx solid #1E90FF;
+  text-align: center;
+}
+.modalItem view{
+  height: 40rpx;
+  margin: 15rpx auto;
+}
+input{
+  margin: auto 0;
+  width: 600rpx;
+  text-align: right;
+}
+button{
+  margin: 100rpx 0;
+  font-size: 30rpx;
+}
+#content{
+  display: flex;
+  flex-direction: column ;
+  overflow: scroll;
+}
+.item{
+  background-color: #1E90FF;
+  border-radius: 10rpx;
+  font-size: 35rpx;
+  height: 60rpx;
+  width: 95%;
+  margin: 10rpx auto;
+  text-align: center;
+  
+  }

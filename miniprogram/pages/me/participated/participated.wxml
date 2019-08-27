@@ -1,0 +1,2 @@
+<!--miniprogram/pages/me/participated/participated.wxml-->
+<navBar text="参与过的实验" back="true"></navBar>

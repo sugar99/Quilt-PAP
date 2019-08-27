@@ -1,0 +1,2 @@
+<!--miniprogram/pages/me/about/about.wxml-->
+<navBar text="关于我们" back="true"></navBar>
